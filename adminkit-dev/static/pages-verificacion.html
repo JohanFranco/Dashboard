@@ -24,7 +24,7 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	<script>
-		var urlBase = "https://upetapi.azurewebsites.net/api"
+		var urlBase = "https://upetapiv2.azurewebsites.net/api"
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -187,7 +187,7 @@ fetch(urlBase+'/dashboard/noVer')
 
 console.log(data)
 	data.forEach(function(item, index) {
-if(item.link == ""){
+if(item.link == "" || item.link == "null"){
 	item.link= "No Social link"
 }
 
@@ -205,7 +205,7 @@ if(item.link == ""){
                                     <p class="card-text">Localidad: ${item.estado}, ${item.municipio}</p>
                                     <p class="card-text">CP: ${item.codigoPostal}</p>
                                     <p class="card-text">Dirección: Col. ${item.colonia}, ${item.calle} #${item.numeroExterior}</p>
-                                    <p class="card-text">Social: ${item.link}</p>
+                                  
                                   <button class="btn btn-danger" onclick="recahzar(${item.id})">Rechazar</button>
                                   <button class="btn btn-success" onclick="verificar(${item.id})">Verificar</button>
                                   
